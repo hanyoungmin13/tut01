@@ -8,6 +8,8 @@
 
 [🔴⚪ 오박사의 팀 도감 열기](./pokemon-page.md)
 
+[🗂️ 팀 프로젝트 칸반보드 열기](./kanban.md)
+
 ## TO DO
 
 - []markdown 문법 배우기
