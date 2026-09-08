@@ -64,3 +64,6 @@
 
 ## 상품
 포켓몬 관련 상품을 소개하는 공간입니다.
+
+
+![가천 코코네스쿨 로고](./4QrbWZLlVhHiFneiqMPwZfbpqFY.png)
