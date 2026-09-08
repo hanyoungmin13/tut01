@@ -12,9 +12,12 @@
 >내성적이다
 >>하지만 내성인들 중에서는 외향적인 성격이다
 >>> 하지만 내성적인 사람들만 모여있으면 대화를 먼저 건다
-<pre>
-<code>
+
+
+```java
 public class BootSpringBootApplication {
   public static void main(String[] args) {
-    System.out.println("Hello, Honeymon");
-  
+    System.out.println("화이팅 해보자");
+  }
+}
+```
