@@ -189,9 +189,23 @@ body {
   justify-content: center;
   align-items: center;
   padding: 40px 20px;
-  background-image: radial-gradient(circle, #555 10%, transparent 11%), radial-gradient(circle, #555 10%, transparent 11%);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #f3f3f3;
+}
+
+/* 기존 점무늬 대신, 포켓몬볼 그림을 아주 연하게 반복해 배경으로 사용 */
+.pokedex-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url('/tut01/images/pokeball_closed.png');
+  background-size: 130px auto;
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.055;
 }
 
 .pokedex-card {
@@ -202,6 +216,7 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
   overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 
 /* Card Cutout Corner styling */
