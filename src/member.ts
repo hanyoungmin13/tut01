@@ -20,15 +20,17 @@ function getTypeLabel(type: string): string {
 
 function renderMember(member: Member) {
   // Update Header Elements
-  document.title = `${member.name} - 팀원 도감`;
+  document.title = `${member.pokemonName} (${member.name}) - 팀원 도감`;
   
   const noEl = document.getElementById('member-no');
-  const nameEl = document.getElementById('member-name');
+  const pokemonNameEl = document.getElementById('member-pokemon-name');
+  const realNameEl = document.getElementById('member-real-name');
   const descEl = document.getElementById('member-desc');
   const imageEl = document.getElementById('member-image') as HTMLImageElement;
   
   if (noEl) noEl.textContent = member.no;
-  if (nameEl) nameEl.textContent = member.name;
+  if (pokemonNameEl) pokemonNameEl.textContent = member.pokemonName;
+  if (realNameEl) realNameEl.textContent = `(${member.name})`;
   if (descEl) descEl.textContent = member.desc;
   if (imageEl) imageEl.src = member.image;
 
