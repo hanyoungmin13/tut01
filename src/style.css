@@ -1,0 +1,387 @@
+/* Base reset and styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* --- Index Page --- */
+.index-body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.oak-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.oak-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* 이미지 원본에 있는 얇은 테두리선을 잘라내기 위해 가장자리 2px 숨김 */
+  clip-path: inset(2px);
+}
+
+.selection-section {
+  background-color: #ffffff;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.pokeballs-container {
+  display: flex;
+  gap: 60px; /* Increased gap */
+}
+
+.pokeball-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.pokeball-wrapper:hover {
+  transform: scale(1.1) translateY(-15px);
+}
+
+.pokeball-image {
+  width: 160px; /* Increased size */
+  height: 160px; /* Increased size */
+  background-image: url('/tut01/images/pokeball_closed.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease;
+}
+
+.pokeball-wrapper:hover .pokeball-image {
+  background-image: url('/tut01/images/pokeball_open.png');
+}
+
+.member-label {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.pokeball-wrapper:hover .member-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Member Detail Page --- */
+.member-body {
+  background-color: #3b3b3b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pokedex-header {
+  background-color: #2c2c2c;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #111;
+}
+
+.back-button {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.back-button:hover {
+  color: #e3350d;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: #444;
+}
+
+.nav-arrow {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #aaa;
+}
+
+.nav-btn:hover .nav-arrow {
+  color: white;
+}
+
+.nav-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+#next-btn .nav-info {
+  text-align: right;
+}
+
+.nav-no {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.nav-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.pokedex-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-image: radial-gradient(circle, #555 10%, transparent 11%), radial-gradient(circle, #555 10%, transparent 11%);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.pokedex-card {
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Card Cutout Corner styling */
+.pokedex-card::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  background-color: #3b3b3b;
+  transform: rotate(45deg);
+}
+
+.card-header {
+  padding: 30px 40px 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+}
+
+.member-no {
+  color: #888;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.member-name {
+  font-size: 2.5rem;
+  color: #111;
+}
+
+.member-tag {
+  background-color: #8cc63f;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+.member-desc {
+  padding: 0 40px 20px;
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.card-content {
+  display: flex;
+  padding: 0 40px 30px;
+  gap: 40px;
+}
+
+.member-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.member-image-container img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  /* Add a soft shadow */
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+  transition: transform 0.3s ease;
+}
+
+.member-image-container img:hover {
+  transform: scale(1.05);
+}
+
+.member-info-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #eee;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #777;
+  font-weight: bold;
+}
+
+.info-value {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.types, .genders {
+  display: flex;
+  gap: 8px;
+}
+
+.type-badge {
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.type-grass { background-color: #78c850; }
+.type-poison { background-color: #a040a0; }
+.type-fire { background-color: #f08030; }
+.type-water { background-color: #6890f0; }
+.type-electric { background-color: #f8d030; }
+.type-normal { background-color: #a8a878; }
+
+.gender-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.gender-m { color: #3399ff; }
+.gender-f { color: #ff6699; }
+
+.help-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  background-color: #555;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  cursor: help;
+}
+
+.card-footer {
+  padding: 0;
+  margin-top: auto;
+}
+
+.action-btn {
+  width: 100%;
+  background-color: #e3350d;
+  color: white;
+  border: none;
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #c92f0b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-content {
+    flex-direction: column;
+  }
+  .member-image-container {
+    min-height: 200px;
+  }
+  .pokeballs-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
