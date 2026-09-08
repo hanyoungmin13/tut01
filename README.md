@@ -4,6 +4,10 @@
 
 [가천대학교 홈페이지](https://www.gachon.ac.kr)
 
+## 포켓몬스터 팀 페이지
+
+[🔴⚪ 오박사의 팀 도감 열기](./pokemon-page.md)
+
 ## TO DO
 
 - []markdown 문법 배우기
