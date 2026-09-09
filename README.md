@@ -11,3 +11,6 @@
 
 ###좋아하는 문장
 >저스트 두 잇(just do it)
+
+
+5c5d728df51272b588aadec1d7bd1fc4d5109ef9
