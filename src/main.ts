@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wrapper.setAttribute('aria-busy', 'true');
       window.setTimeout(() => {
         window.location.href = `${import.meta.env.BASE_URL}member.html?id=${member.id}`;
-      }, 1650);
+      }, 2200);
     };
 
     wrapper.onclick = openMemberPage;
@@ -48,13 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const top = document.createElement('div');
     top.className = 'pokeball-layer pokeball-top';
 
+    const lock = document.createElement('div');
+    lock.className = 'pokeball-lock';
+    lock.setAttribute('aria-hidden', 'true');
+
     const openState = document.createElement('div');
     openState.className = 'pokeball-open-state';
 
     const light = document.createElement('div');
     light.className = 'pokeball-light';
 
-    pokeball.append(bottom, hinge, chamber, interior, top, openState, light);
+    pokeball.append(bottom, hinge, chamber, interior, top, lock, openState, light);
 
     const label = document.createElement('div');
     label.className = 'member-label';

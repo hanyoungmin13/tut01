@@ -175,6 +175,37 @@ body {
   transform-origin: 50% 100%;
 }
 
+.pokeball-lock {
+  position: absolute;
+  left: 55px;
+  top: 52px;
+  width: 50px;
+  height: 50px;
+  z-index: 6;
+  border: 4px solid #151515;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 42%, #ffffff 0 31%, #d9d9d9 33% 43%, #747478 45% 67%, #414145 70% 100%);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4), inset 0 2px 3px rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+}
+
+.pokeball-lock::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 2px solid #111;
+  border-radius: 50%;
+}
+
+.pokeball-lock::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  background: #f8f8f8;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.22);
+}
+
 .pokeball-open-state {
   position: absolute;
   left: -4px;
@@ -231,27 +262,35 @@ body {
 }
 
 .pokeball-wrapper.is-opening .pokeball-top {
-  animation: hinge-open 1.35s cubic-bezier(0.18, 0.8, 0.25, 1) forwards;
+  animation: hinge-open 1.35s cubic-bezier(0.18, 0.8, 0.25, 1) 0.28s forwards;
 }
 
 .pokeball-wrapper.is-opening .pokeball-hinge {
-  animation: hinge-appear 1.35s ease-out forwards;
+  animation: hinge-appear 1.35s ease-out 0.28s forwards;
+}
+
+.pokeball-wrapper.is-opening .pokeball-lock {
+  animation: lock-press 0.58s cubic-bezier(0.2, 0.75, 0.25, 1) forwards;
 }
 
 .pokeball-wrapper.is-opening .pokeball-chamber {
-  animation: reveal-chamber 1.35s cubic-bezier(0.2, 0.75, 0.25, 1) forwards;
+  animation: reveal-chamber 1.35s cubic-bezier(0.2, 0.75, 0.25, 1) 0.28s forwards;
 }
 
 .pokeball-wrapper.is-opening .pokeball-interior {
-  animation: reveal-interior 1.35s ease-out forwards;
+  animation: reveal-interior 1.35s ease-out 0.28s forwards;
 }
 
 .pokeball-wrapper.is-opening .pokeball-open-state {
-  animation: show-open-state 1.65s ease-in-out forwards;
+  animation: show-open-state 1.35s ease-in-out 0.42s forwards;
 }
 
 .pokeball-wrapper.is-opening .pokeball-light {
-  animation: opening-light 1.1s ease-out forwards;
+  animation: opening-light 1.1s ease-out 0.48s forwards;
+}
+
+.pokeball-wrapper.is-opening .pokeball-visual {
+  animation: activation-bounce 2.2s cubic-bezier(0.2, 0.75, 0.25, 1) forwards;
 }
 
 @keyframes hinge-open {
@@ -265,6 +304,23 @@ body {
   0%, 14% { opacity: 0; transform: translateY(-3px) scaleX(0.7); }
   38% { opacity: 1; transform: translateY(0) scaleX(1); }
   100% { opacity: 0.9; transform: translateY(2px) scaleX(1); }
+}
+
+@keyframes lock-press {
+  0% { opacity: 1; transform: scale(1); }
+  10% { opacity: 1; transform: translateY(3px) scale(0.82); }
+  19% { opacity: 1; transform: translateY(-1px) scale(1.08); }
+  32% { opacity: 0.95; transform: translateY(0) scale(1); }
+  48% { opacity: 0; transform: translateY(-2px) scale(0.9); }
+  100% { opacity: 0; transform: translateY(-2px) scale(0.9); }
+}
+
+@keyframes activation-bounce {
+  0% { transform: scale(1); }
+  7% { transform: scale(0.88); }
+  14% { transform: scale(1.06); }
+  23% { transform: scale(0.97); }
+  31%, 100% { transform: scale(1); }
 }
 
 @keyframes reveal-chamber {
