@@ -11,54 +11,44 @@ document.addEventListener('DOMContentLoaded', () => {
     wrapper.setAttribute('tabindex', '0');
     wrapper.setAttribute('aria-label', `${member.name} 도감 열기`);
 
-    let isOpening = false;
-    const openMemberPage = () => {
-      if (isOpening) return;
-      isOpening = true;
-      wrapper.classList.add('is-opening');
+    const pokeball = document.createElement('div');
+    pokeball.className = 'pokeball-image';
+
+    const video = document.createElement('video');
+    video.className = 'pokeball-video';
+    video.src = `${import.meta.env.BASE_URL}videos/pokeball-opening.mp4`;
+    video.muted = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+    video.setAttribute('aria-hidden', 'true');
+
+    let isPlaying = false;
+    const playOpeningVideo = () => {
+      if (isPlaying) return;
+      isPlaying = true;
+      wrapper.classList.add('is-playing');
       wrapper.setAttribute('aria-busy', 'true');
-      window.setTimeout(() => {
-        window.location.href = `${import.meta.env.BASE_URL}member.html?id=${member.id}`;
-      }, 2200);
+      video.currentTime = 0;
+      void video.play().catch(() => {
+        isPlaying = false;
+        wrapper.classList.remove('is-playing');
+        wrapper.removeAttribute('aria-busy');
+      });
     };
 
-    wrapper.onclick = openMemberPage;
+    video.addEventListener('ended', () => {
+      window.location.href = `${import.meta.env.BASE_URL}member.html?id=${member.id}`;
+    });
+
+    wrapper.onclick = playOpeningVideo;
     wrapper.onkeydown = event => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        openMemberPage();
+        playOpeningVideo();
       }
     };
 
-    const pokeball = document.createElement('div');
-    pokeball.className = 'pokeball-visual';
-
-    const bottom = document.createElement('div');
-    bottom.className = 'pokeball-layer pokeball-bottom';
-
-    const hinge = document.createElement('div');
-    hinge.className = 'pokeball-hinge';
-
-    const chamber = document.createElement('div');
-    chamber.className = 'pokeball-chamber';
-
-    const interior = document.createElement('div');
-    interior.className = 'pokeball-interior';
-
-    const top = document.createElement('div');
-    top.className = 'pokeball-layer pokeball-top';
-
-    const lock = document.createElement('div');
-    lock.className = 'pokeball-lock';
-    lock.setAttribute('aria-hidden', 'true');
-
-    const openState = document.createElement('div');
-    openState.className = 'pokeball-open-state';
-
-    const light = document.createElement('div');
-    light.className = 'pokeball-light';
-
-    pokeball.append(bottom, hinge, chamber, interior, top, lock, openState, light);
+    pokeball.appendChild(video);
 
     const label = document.createElement('div');
     label.className = 'member-label';
