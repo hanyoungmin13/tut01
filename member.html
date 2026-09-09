@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>팀원 도감</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body class="member-body">
+    <header class="pokedex-header">
+      <a href="/" class="back-button">&lt; 메인으로</a>
+      <div class="nav-buttons">
+        <button id="prev-btn" class="nav-btn">
+          <span class="nav-arrow">&lt;</span>
+          <span class="nav-info">
+            <span class="nav-no" id="prev-no">No. 000</span>
+            <span class="nav-name" id="prev-name">이전</span>
+          </span>
+        </button>
+        <button id="next-btn" class="nav-btn">
+          <span class="nav-info">
+            <span class="nav-name" id="next-name">다음</span>
+            <span class="nav-no" id="next-no">No. 000</span>
+          </span>
+          <span class="nav-arrow">&gt;</span>
+        </button>
+      </div>
+    </header>
+    <main class="pokedex-main">
+      <div class="pokedex-card">
+        <div class="card-header">
+          <span class="member-no" id="member-no">No. 0000</span>
+          <h1 class="member-name" id="member-name">
+            <span class="member-pokemon-name" id="member-pokemon-name">이름</span>
+            <span class="member-real-name" id="member-real-name">(이름)</span>
+          </h1>
+          <span class="member-tag">팀원 (Team Member)</span>
+        </div>
+        <p class="member-desc" id="member-desc">
+          설명이 여기에 들어갑니다.
+        </p>
+        <div class="card-content">
+          <div class="member-image-container">
+            <img id="member-image" src="" alt="팀원 이미지" />
+          </div>
+          <div class="member-info-grid">
+            <div class="info-item">
+              <span class="info-label">타입</span>
+              <div class="types" id="member-types">
+                <!-- JS로 타입 렌더링 -->
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">키</span>
+              <span class="info-value" id="member-height">0.0m</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">분류</span>
+              <span class="info-value" id="member-category">팀원포켓몬</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">성별</span>
+              <div class="genders" id="member-genders">
+                <!-- JS로 성별 렌더링 -->
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">몸무게</span>
+              <span class="info-value" id="member-weight">0.0kg</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">특성</span>
+              <span class="info-value"><span id="member-ability">특성명</span> <span class="help-icon">?</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="action-btn">상품 보러가기 &gt;</button>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./src/member.ts"></script>
+  </body>
+</html>
